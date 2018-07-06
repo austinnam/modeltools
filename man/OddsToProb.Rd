@@ -7,10 +7,10 @@
 OddsToProb(o)
 }
 \arguments{
-\item{o}{A vector of odds}
+\item{o}{A vector of odds.}
 }
 \value{
-A vector of probabilities
+A vector of probabilities.
 }
 \description{
 Converts a vector of odds to probabilities.

@@ -7,7 +7,7 @@
 ProbToRate(p, t = 1)
 }
 \arguments{
-\item{p}{A vector of probabilities}
+\item{p}{A vector of probabilities.}
 
 \item{t}{The time frame of the probability.}
 }

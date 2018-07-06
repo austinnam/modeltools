@@ -7,7 +7,7 @@
 ProbToOdds(p)
 }
 \arguments{
-\item{p}{A vector of probabilities}
+\item{p}{A vector of probabilities.}
 }
 \value{
 A vector of odds.
