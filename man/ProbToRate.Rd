@@ -20,3 +20,8 @@ Converts a vector of probabilities to a vector of rates.
 \details{
 If any probabilities are less than 0 or greater than 1, the function returns \emph{NULL}.
 }
+\examples{
+# For a cumulative probability of 50\% over 2 years
+ProbToRate(0.5,2) # returns an annual rate of 0.35
+ProbToRate(0.5,24) # returns a monthly rate of 0.02 
+}

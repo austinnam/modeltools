@@ -1,9 +1,13 @@
 #' @title Convert a probability to a rate
 #' @description Converts a vector of probabilities to a vector of rates. 
-#' @details If any probabilities are less than 0 or greater than 1, the function returns \emph{NULL}. 
 #' @param p A vector of probabilities.
 #' @param t The time frame of the probability. 
+#' @details If any probabilities are less than 0 or greater than 1, the function returns \emph{NULL}. 
 #' @return A vector of rates in the unit of time \emph{t}.
+#' @examples 
+#' # For a cumulative probability of 50% over 2 years
+#' ProbToRate(0.5,2) # returns an annual rate of 0.35
+#' ProbToRate(0.5,24) # returns a monthly rate of 0.02 
 ProbToRate <- function(p, t=1){
   # Exception handling for probabilities outside (0,1)
   if(any(p<0)){
@@ -19,13 +23,16 @@ ProbToRate <- function(p, t=1){
 }
 
 
-
 #' @title Convert a rate to a probability
 #' @description Converts a vector of rates to a vector of probabilities. 
 #' @details If any rates are less than 0, the function returns \emph{NULL}.
 #' @param r A vector of rates.
-#' @param t The time frame of the desired probability.
+#' @param t The time frame of the desired probability in the units of the input rate.
 #' @return A vector of probabilities in the unit of time \emph{t}.
+#' @examples 
+#' # If event rate over over 2 years is 50%
+#' RateToProb(0.5, 1/2) # returns an annual probability of 0.22
+#' RateToProb(0.5, 1/24) # returns a monthly probability of 0.02
 RateToProb <- function(r, t=1){
   # Exception handling for rates < 0.
   if(any(r<0)){

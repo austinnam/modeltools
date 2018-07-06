@@ -9,7 +9,7 @@ RateToProb(r, t = 1)
 \arguments{
 \item{r}{A vector of rates.}
 
-\item{t}{The time frame of the desired probability.}
+\item{t}{The time frame of the desired probability in the units of the input rate.}
 }
 \value{
 A vector of probabilities in the unit of time \emph{t}.
@@ -19,4 +19,9 @@ Converts a vector of rates to a vector of probabilities.
 }
 \details{
 If any rates are less than 0, the function returns \emph{NULL}.
+}
+\examples{
+# If event rate over over 2 years is 50\%
+RateToProb(0.5, 1/2) # returns an annual probability of 0.22
+RateToProb(0.5, 1/24) # returns a monthly probability of 0.02
 }
