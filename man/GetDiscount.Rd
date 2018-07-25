@@ -12,7 +12,7 @@ GetDiscount(disc_rate, t)
 \item{t}{A vector of time points in the Markov chain.}
 }
 \value{
-A vector of discount rates for each time point in a Markov chain.
+A vector of discount rates for each time point in a Markov chain. A \emph{NULL} value is returned if \emph{disc_rate} or any value in \emph{t} is less than 0.
 }
 \description{
 Calculates the discount rate at each time point in a Markov chain.

@@ -12,13 +12,10 @@ ProbToRate(p, t = 1)
 \item{t}{The time frame of the probability.}
 }
 \value{
-A vector of rates in the unit of time \emph{t}.
+A vector of rates in the unit of time \emph{t}. If any probabilities are less than 0 or greater than 1, the function returns \emph{NULL}.
 }
 \description{
 Converts a vector of probabilities to a vector of rates.
-}
-\details{
-If any probabilities are less than 0 or greater than 1, the function returns \emph{NULL}.
 }
 \examples{
 # For a cumulative probability of 50\% over 2 years

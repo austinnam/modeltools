@@ -10,11 +10,8 @@ ProbToOdds(p)
 \item{p}{A vector of probabilities.}
 }
 \value{
-A vector of odds.
+A vector of odds. If any probabilities are less than 0 or greater than 1, the function returns a \emph{NULL}.
 }
 \description{
 Converts a vector of probabilities to odds.
-}
-\details{
-If any probabilities are less than 0 or greater than 1, the function returns a \emph{NULL}.
 }
