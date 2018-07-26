@@ -27,7 +27,4 @@
 #' @docType package
 #' @name modeltools
 #' @author Austin Nam (\email{austin.nam@@mail.utoronto.ca})
-#' @import Rcpp
-#' @importFrom Rcpp evalCpp
-#' @useDynLib modeltools, .registration=TRUE
 NULL

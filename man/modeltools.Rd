@@ -6,7 +6,7 @@
 \alias{modeltools-package}
 \title{Decision Modelling Tools}
 \description{
-A collection of functions to handle tasks commonly used in developing decision models. 
+A collection of functions to handle tasks commonly used in developing decision models.
 \subsection{Probabilities and Rates}{
   \code{\link{ProbToRate}} converts a cumulative probability over a given time frame to a rate.\cr\cr
   \code{\link{RateToProb}} converts a rate to a cumulative probability over a given time frame.\cr\cr
@@ -25,7 +25,6 @@ using method of moments.\cr\cr
   \item mean and lower/upper bounds of a 95\% confidence interval.
   }
 }
-
 \subsection{Other}{
   \code{\link{GetDiscount}} returns an instantaneous discount rate for a vector of time points. 
 }

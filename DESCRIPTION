@@ -7,7 +7,4 @@ Author: Austin Nam
 Maintainer: Austin Nam <austin.nam@mail.utoronto.ca>
 Description: This package contains common tools used for decision modelling in R.  
 License: GPL (>= 2)
-Imports: Rcpp (>= 0.12.17)
-LinkingTo: Rcpp
-SystemRequirements: C++11
 RoxygenNote: 6.0.1
