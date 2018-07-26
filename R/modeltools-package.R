@@ -27,4 +27,6 @@
 #' @docType package
 #' @name modeltools
 #' @author Austin Nam (\email{austin.nam@@mail.utoronto.ca})
+#' 
+#' @import stats
 NULL

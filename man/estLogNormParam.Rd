@@ -4,16 +4,12 @@
 \alias{estLogNormParam}
 \title{Estimate Lognormal Distribution}
 \usage{
-estLogNormParam(mu, sigma = NULL, lower = NULL, upper = NULL)
+estLogNormParam(mu, s)
 }
 \arguments{
 \item{mu}{Mean of estimate.}
 
-\item{sigma}{Standard deviation of estimate.}
-
-\item{lower}{Lower limit of 95\% confidence interval of estimate.}
-
-\item{upper}{Upper limit of 95\% confidence interval of estimate.}
+\item{s}{Standard deviation or 95\% confidence interval of estimate.}
 }
 \value{
 Log-mean and Log-sd of the lognormal distribution.
@@ -22,16 +18,22 @@ Log-mean and Log-sd of the lognormal distribution.
 Estimate parameters of a lognormal distribution using method of moments.
 }
 \details{
-Parameters for a 95\% confidence interval are optional if mu and sigma are provided. 
+\emph{s} can only contain 1 or 2 elements. 
+If 1 element is supplied, then s is used as the standard deviation. 
+If 2 elements are supplied, then s is used as a 95\% confidence interval 
+with the first element as the lower bound. \cr
+This function is not vectorised. If s has more than 2 elements, the function returns NULL.
+If mu has more than 1 element, then only the first element is used. 
+
 If neither sigma nor 95\% confidence interval are provided, the function returns \emph{NULL}.
 
-Where \emph{mu} and \emph{sigma} are provided, parameters are estimated by:
-\deqn{log(\mu) = log(mu) - log(\sqrt{1 + sigma^2/mu^2})}
-\deqn{log(\sigma) = \sqrt{log(1 + sigma^2/mu^2)}}
+Where a standard deviation is provided, parameters are estimated by:
+\deqn{log(\mu) = log(mu) - log(\sqrt{1 + s^2/mu^2})}
+\deqn{log(\sigma) = \sqrt{log(1 + s^2/mu^2)}}
 
-Where \emph{mu} and a 95\% confidence interval are provided, parameters are estimated by:
+Where a 95\% confidence interval are provided, parameters are estimated by:
 \deqn{log(\mu) = log(mu)}
-\deqn{log(\sigma) = [(log(upper) - log(lower))/(2*1.959964)]}
+\deqn{log(\sigma) = [(log(s[2]) - log(s[1]))/(2*1.959964)]}
 }
 \references{
 https://en.wikipedia.org/wiki/Log-normal_distribution
