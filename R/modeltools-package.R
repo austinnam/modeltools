@@ -20,7 +20,6 @@
 #'   \item mean and lower/upper bounds of a 95\% confidence interval.
 #'   }
 #' }
-#' 
 #' \subsection{Other}{
 #'   \code{\link{GetDiscount}} returns an instantaneous discount rate for a vector of time points. 
 #' }
