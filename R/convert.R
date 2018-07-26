@@ -10,20 +10,14 @@
 #' @export
 ProbToRate <- function(p, t=1){
   
-  # exception handling for prob<0
-  if(any(p<0)){
-    print("ERROR (ProbToRate): Passed probability less than 0. Returning NULL.")
-    return()
-  } 
-  
-  # exception handling for prob>1
-  if(any(p>1)){
-    print("ERROR (ProbToRate): Passed probability greater than 1. Returning NULL.")
-    return()
-  } 
- 
-  return(-log(1-p)/t)
-  
+  # exception handling for prob<0 or prob > 1
+  tryCatch(
+    return(-log(1-p)/t),
+    if(any(p<0)) print("ERROR (ProbToRate): Passed probability less than 0. Returning NULL."),
+    if(any(p>1)) print("ERROR (ProbToRate): Passed probability greater than 1. Returning NULL."),
+    return() # return NULL if any exception occurs
+  )
+
 }
 
 
@@ -46,7 +40,6 @@ RateToProb <- function(r, t=1){
   }
   
   return(1-exp(-r*t))
-  
 }
 
 #' @title Convert probability to odds
@@ -56,19 +49,13 @@ RateToProb <- function(r, t=1){
 #' @export
 ProbToOdds <- function(p){
   
-  # exception handling if prob < 0
-  if(any(p<0)) {
-    print("ERROR (ProbToOdds): Passsed a probability less than 0. Returning NULL.")
-    return()
-  }
-  
-  # exception if prob > 1
-  if(any(p>1)){
-    print("ERROR (ProbToOdds): Passed a probability greater than 1. Returning NULL.")
-    return()
-  } 
-  
-  return(p/(1-p))  
+  # exception handling if prob < 0 or prob > 1
+  tryCatch(
+    return(p/(1-p)),
+    if(any(p<0)) print("ERROR (ProbToOdds): Passsed a probability less than 0. Returning NULL."),
+    if(any(p>1)) print("ERROR (ProbToOdds): Passed a probability greater than 1. Returning NULL."),
+    return() # return NULL if any exception occurs
+  )
 }
 
 #' @title Convert odds to probability

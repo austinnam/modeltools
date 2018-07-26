@@ -7,9 +7,11 @@
 estGammaParam(mu, sigma)
 }
 \arguments{
-\item{mu}{Mean of the gamma distribution.}
+\item{mu}{Mean of the gamma distribution. 
+\emph{mu} cannot have a negative value.}
 
-\item{sigma}{Standard deviation of the gamma distribution.}
+\item{sigma}{Standard deviation of the gamma distribution.
+\emph{sigma} cannot have a negative value.}
 }
 \description{
 Estimate parameters of a gamma distribution using method of moments.

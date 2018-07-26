@@ -7,9 +7,11 @@
 estBetaParam(mu, sigma)
 }
 \arguments{
-\item{mu}{Mean of the beta distribution.}
+\item{mu}{Mean of the beta distribution. 
+\emph{mu} must be between 0 and 1.}
 
-\item{sigma}{Standard deviation of the beta distribution.}
+\item{sigma}{Standard deviation of the beta distribution.
+\emph{sigma} cannot have a negative value.}
 }
 \description{
 Estimate parameters of a beta distribution using method of moments.

@@ -7,9 +7,11 @@
 estLogNormParam(mu, s)
 }
 \arguments{
-\item{mu}{Mean of estimate.}
+\item{mu}{Mean of estimate.
+\emph{mu} cannot have a negative value and must be of length=1.}
 
-\item{s}{Standard deviation or 95\% confidence interval of estimate.}
+\item{s}{Standard deviation or 95\% confidence interval of estimate.
+\emph{s} cannot have a negative value.}
 }
 \value{
 Log-mean and Log-sd of the lognormal distribution.

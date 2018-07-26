@@ -5,8 +5,10 @@
 
 #' @title Estimate Gamma Distribution Parameters
 #' @description Estimate parameters of a gamma distribution using method of moments.
-#' @param mu Mean of the gamma distribution.
+#' @param mu Mean of the gamma distribution. 
+#' \emph{mu} cannot have a negative value.
 #' @param sigma Standard deviation of the gamma distribution.
+#' \emph{sigma} cannot have a negative value.
 #' @references https://www.rocscience.com/help/swedge/webhelp/swedge/Gamma_Distribution.htm
 #' 
 #' @details \eqn{\alpha} (shape) and \eqn{\beta} (scale) parameters are estimated as:
@@ -15,19 +17,17 @@
 #' @export
 estGammaParam <- function(mu, sigma){
   
-  if(any(mu<0)){
-    print("ERROR (estGammaParam): mu cannot be negative. Returning NULL.")
-    return()
-  }
-  if(any(sigma<0)){
-    print("ERROR (estGammaParam): sigma cannot be negative. Returning NULL.")
-    return()
-  }
-  
-  alpha <- (mu/sigma)^2
-  beta <- sigma^2/mu
-  return(list(alpha=alpha,beta=beta))
-  
+  tryCatch(
+    {
+      alpha <- (mu/sigma)^2
+      beta <- sigma^2/mu
+      return(list(alpha=alpha,beta=beta))
+    },
+    if(any(mu<0)) print("ERROR (estGammaParam): mu cannot be negative. Returning NULL."),
+    if(any(sigma<0)) print("ERROR (estGammaParam): sigma cannot be negative. Returning NULL."),
+    return() # return NULL if any exception occurs
+  )
+
 }
 
 
@@ -35,8 +35,10 @@ estGammaParam <- function(mu, sigma){
 
 #' @title Estimate Beta Distribution Parameters
 #' @description Estimate parameters of a beta distribution using method of moments.
-#' @param mu Mean of the beta distribution.
+#' @param mu Mean of the beta distribution. 
+#' \emph{mu} must be between 0 and 1.
 #' @param sigma Standard deviation of the beta distribution.
+#' \emph{sigma} cannot have a negative value.
 #' @references 
 #' https://stats.stackexchange.com/questions/12232/calculating-the-parameters-of-a-beta-distribution-using-the-mean-and-variance
 #' @details 
@@ -46,23 +48,18 @@ estGammaParam <- function(mu, sigma){
 #' @export
 estBetaParam <- function(mu, sigma){
   
-  if(any(mu<0)){
-    print("ERROR (estBetaParam): mu must not be less than 0. Returning NULL.")
-    return()
-  }
-  if(any(mu>1)){
-    print("ERROR (estBetaParam): mu must not be greater than 1. Returning NULL.")
-    return()
-  }
-  if(any(sigma<0)){
-    print("ERROR (estBetaParam): sigma must not be negative. Returning NULL.")
-    return()
-  }
-  
-  alpha <- ((1-mu)/sigma^2 - 1/mu) * mu^2
-  beta <- alpha * (1/mu - 1)
-  return(list(alpha=alpha, beta=beta))
-  
+  tryCatch(
+    {
+      alpha <- ((1-mu)/sigma^2 - 1/mu) * mu^2
+      beta <- alpha * (1/mu - 1)
+      return(list(alpha=alpha, beta=beta))
+    },
+    if(any(mu<0)) print("ERROR (estBetaParam): mu must not be less than 0. Returning NULL."),
+    if(any(mu>1)) print("ERROR (estBetaParam): mu must not be greater than 1. Returning NULL."),
+    if(any(sigma<0)) print("ERROR (estBetaParam): sigma must not be negative. Returning NULL."),
+    return() # return NULL if any exception occurs
+  )
+
 }
 
 
@@ -70,7 +67,9 @@ estBetaParam <- function(mu, sigma){
 #' @title Estimate Lognormal Distribution
 #' @description Estimate parameters of a lognormal distribution using method of moments.
 #' @param mu Mean of estimate.
+#' \emph{mu} cannot have a negative value and must be of length=1. 
 #' @param s Standard deviation or 95\% confidence interval of estimate.
+#' \emph{s} cannot have a negative value. 
 #' @return Log-mean and Log-sd of the lognormal distribution.
 #' @references 
 #' https://en.wikipedia.org/wiki/Log-normal_distribution
