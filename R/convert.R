@@ -7,6 +7,7 @@
 #' # For a cumulative probability of 50% over 2 years
 #' ProbToRate(0.5,2) # returns an annual rate of 0.35
 #' ProbToRate(0.5,24) # returns a monthly rate of 0.02 
+#' @export
 ProbToRate <- function(p, t=1){
   
   tryCatch(
@@ -30,6 +31,7 @@ ProbToRate <- function(p, t=1){
 #' # If event rate over over 2 years is 50%
 #' RateToProb(0.5, 1/2) # returns an annual probability of 0.22
 #' RateToProb(0.5, 1/24) # returns a monthly probability of 0.02
+#' @export
 RateToProb <- function(r, t=1){
   
   tryCatch(
@@ -46,6 +48,7 @@ RateToProb <- function(r, t=1){
 #' @description Converts a vector of probabilities to odds. 
 #' @param p A vector of probabilities.
 #' @return A vector of odds. If any probabilities are less than 0 or greater than 1, the function returns a \emph{NULL}.
+#' @export
 ProbToOdds <- function(p){
   
   tryCatch(
@@ -63,6 +66,7 @@ ProbToOdds <- function(p){
 #' @description Converts a vector of odds to probabilities. 
 #' @param o A vector of odds.
 #' @return A vector of probabilities. If any odds are less than 0, the function returns \emph{NULL}.
+#' @export
 OddsToProb <- function(o){
   
   tryCatch(

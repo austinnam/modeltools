@@ -18,6 +18,7 @@
 #' @details \eqn{\alpha} (shape) and \eqn{\beta} (scale) parameters are estimated as:
 #' \deqn{\alpha = (mu/sigma)^2}
 #' \deqn{\beta = (sigma^2)/mu} 
+#' @export
 estGammaParam <- function(mu, sigma){
   
   alpha <- (mu/sigma)^2
@@ -39,6 +40,7 @@ estGammaParam <- function(mu, sigma){
 #' Beta(\eqn{\alpha},\eqn{\beta}) distribution has two shape parameters, \eqn{\alpha} and \eqn{\beta}, estimated as:
 #' \deqn{\alpha = [(1-mu)/sigma^2 - 1/mu] * mu^2}
 #' \deqn{\beta = alpha * (1/mu - 1)}
+#' @export
 estBetaParam <- function(mu, sigma){
   
   alpha <- ((1-mu)/sigma^2 - 1/mu) * mu^2
@@ -70,7 +72,7 @@ estBetaParam <- function(mu, sigma){
 #' Where \emph{mu} and a 95\% confidence interval are provided, parameters are estimated by:
 #' \deqn{log(\mu) = log(mu)}
 #' \deqn{log(\sigma) = [(log(upper) - log(lower))/(2*1.959964)]}
-
+#' @export
 estLogNormParam <- function(mu, sigma=NULL, lower=NULL, upper=NULL){
   
   if(!is.null(sigma)){
