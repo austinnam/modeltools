@@ -1,7 +1,7 @@
 #' Decision Modelling Tools
 #' 
 #' @description 
-#' A collection of functions to handle tasks commonly used in developing decision models. 
+#' A collection of functions to handle tasks commonly used in developing decision models.
 #' \subsection{Probabilities and Rates}{
 #'   \code{\link{ProbToRate}} converts a cumulative probability over a given time frame to a rate.\cr\cr
 #'   \code{\link{RateToProb}} converts a rate to a cumulative probability over a given time frame.\cr\cr
