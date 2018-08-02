@@ -26,7 +26,8 @@ using method of moments.\cr\cr
   }
 }
 \subsection{Other}{
-  \code{\link{GetDiscount}} returns an instantaneous discount rate for a vector of time points. 
+  \code{\link{GetDiscount}} returns an instantaneous discount rate for a vector of time points. \cr\cr
+  \code{\link{roundToMult}} returns a vector of values rounded to the nearest multiple specified by the user.
 }
 }
 \author{
