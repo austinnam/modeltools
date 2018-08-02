@@ -17,16 +17,19 @@
 #' @export
 estGammaParam <- function(mu, sigma){
   
-  tryCatch(
-    {
-      alpha <- (mu/sigma)^2
-      beta <- sigma^2/mu
-      return(list(alpha=alpha,beta=beta))
-    },
-    if(any(mu<0)) print("ERROR (estGammaParam): mu cannot be negative. Returning NULL."),
-    if(any(sigma<0)) print("ERROR (estGammaParam): sigma cannot be negative. Returning NULL."),
-    return() # return NULL if any exception occurs
-  )
+  if(any(mu<0)){
+    print("ERROR (estGammaParam): mu cannot be negative. Returning NULL.")
+    return()
+  } 
+  
+  if(any(sigma<=0)){
+    print("ERROR (estGammaParam): sigma must be greater than 0 Returning NULL.")
+    return()
+  } 
+  
+  alpha <- (mu/sigma)^2
+  beta <- sigma^2/mu
+  return(list(alpha=alpha,beta=beta))
 
 }
 
@@ -48,18 +51,25 @@ estGammaParam <- function(mu, sigma){
 #' @export
 estBetaParam <- function(mu, sigma){
   
-  tryCatch(
-    {
-      alpha <- ((1-mu)/sigma^2 - 1/mu) * mu^2
-      beta <- alpha * (1/mu - 1)
-      return(list(alpha=alpha, beta=beta))
-    },
-    if(any(mu<0)) print("ERROR (estBetaParam): mu must not be less than 0. Returning NULL."),
-    if(any(mu>1)) print("ERROR (estBetaParam): mu must not be greater than 1. Returning NULL."),
-    if(any(sigma<0)) print("ERROR (estBetaParam): sigma must not be negative. Returning NULL."),
-    return() # return NULL if any exception occurs
-  )
-
+  if(any(mu<0)){
+    print("ERROR (estBetaParam): mu must not be less than 0. Returning NULL.")
+    return()
+  } 
+  
+  if(any(mu>1)){
+    print("ERROR (estBetaParam): mu must not be greater than 1. Returning NULL.")
+    return()
+  } 
+  
+  if(any(sigma<0)){
+    print("ERROR (estBetaParam): sigma must not be negative. Returning NULL.")
+    return()
+  } 
+  
+  alpha <- ((1-mu)/sigma^2 - 1/mu) * mu^2
+  beta <- alpha * (1/mu - 1)
+  return(list(alpha=alpha, beta=beta))
+  
 }
 
 

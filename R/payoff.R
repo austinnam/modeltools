@@ -7,13 +7,16 @@
 #' @export 
 GetDiscount <- function(disc_rate, t){
   
-  tryCatch(
-    return(1/((1+disc_rate)^seq(0,t-1))),
-    
-    if(disc_rate<0) print("ERROR (GetDiscount): Passed a discount rate less than 0. Returning NULL."), 
-    if(any(t<0)) print("ERROR (GetDiscount): Passed a time value less than 0. Returning NULL."),
-    
-    return() # return NULL if exception occurs
-  )
+  if(disc_rate<0){
+    print("ERROR (GetDiscount): Passed a discount rate less than 0. Returning NULL.")
+    return()
+  } 
+  
+  if(any(t<0)){
+    print("ERROR (GetDiscount): Passed a time value less than 0. Returning NULL.")
+    return()
+  } 
+  
+  return(1/((1+disc_rate)^seq(0,t-1)))
   
 }
