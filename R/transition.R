@@ -103,3 +103,18 @@ roundToMult <- function(v,m){
   
   return(round(v/m, digits=0)*m)
 }
+
+
+#' @title Logit Function
+#' @description Get logit of a given probability.
+#' @param p A vector of probabilities.
+#' @return A vector of logits. 
+#' @export
+logit <- function(p){
+  
+  # check arguments
+  if(any(p<0)) stop("ERROR: Supplied a probability less than 0.")
+  if(any(p>1)) stop("ERROR: Supplied a probability greater than 1.")
+  
+  return(log(p/(1-p)))
+}

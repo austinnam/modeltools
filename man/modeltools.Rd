@@ -27,7 +27,9 @@ using method of moments.\cr\cr
 }
 \subsection{Other}{
   \code{\link{GetDiscount}} returns an instantaneous discount rate for a vector of time points. \cr\cr
-  \code{\link{roundToMult}} returns a vector of values rounded to the nearest multiple specified by the user.
+  \code{\link{roundToMult}} returns a vector of values rounded to the nearest multiple specified by the user.\cr\cr
+  \code{\link{convertFilepath}} converts backslashes in a Windows filepath to a character string 
+  containng forward slashes. 
 }
 }
 \author{
