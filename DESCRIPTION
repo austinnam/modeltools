@@ -6,5 +6,6 @@ Date: 2018-07-06
 Author: Austin Nam
 Maintainer: Austin Nam <austin.nam@mail.utoronto.ca>
 Description: This package contains common tools used for decision modelling in R.  
-License: GPL (>= 2)
-RoxygenNote: 6.0.1
+License: MIT + file LICENSE
+Encoding: UTF-8
+RoxygenNote: 6.1.0
