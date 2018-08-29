@@ -24,7 +24,9 @@
 #'   \code{\link{GetDiscount}} returns an instantaneous discount rate for a vector of time points. \cr\cr
 #'   \code{\link{roundToMult}} returns a vector of values rounded to the nearest multiple specified by the user.\cr\cr
 #'   \code{\link{convertFilepath}} converts backslashes in a Windows filepath to a character string 
-#'   containng forward slashes. 
+#'   containng forward slashes.\cr\cr
+#'   \code{\link{lerp}} is a linear interpolation function that only uses two points on a curve. May be faster than the
+#'   base R function for decision models. 
 #' }
 #' 
 #' @docType package

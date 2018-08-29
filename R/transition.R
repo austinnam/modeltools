@@ -118,3 +118,20 @@ logit <- function(p){
   
   return(log(p/(1-p)))
 }
+
+
+#' @title Linear Interpolation
+#' @description Linear interpolation between two points on a curve. 
+#' May be faster than base R function since only two points are used for interpolation.
+#' @param x Input value to interpolate corresponding location on a curve.
+#' @param x1 Lower x bound for curve y~x.
+#' @param x2 Upper x bound for curve y~x.
+#' @param y1 Lower y value given x1 for curve y~x.
+#' @param y2 Upper y value given x2 for curve y~x.
+#' @return An interpolated value given two points on a curve. 
+#' @export
+# linear interpolation function between 2 points
+lerp <- function(x,x1,x2,y1,y2){
+  return((y1*(x2-x) + y2*(x-x1)) / (x2-x1))
+}
+
