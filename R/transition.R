@@ -120,6 +120,19 @@ logit <- function(p){
 }
 
 
+#' @title Convert Probability with Relative Risk
+#' @description Converts a probability using a relative risk from a different time frame
+#' @param rr Relative risk
+#' @param pC Input probability
+#' @param t Time frame of relative risk
+#' @return A converted probability in the time frame of the input probability
+#' @export
+convertProbRR <- function(rr, pC, t){
+  # convert pC to probability in time frame of rr
+  base_prob = modeltools::RateToProb(modeltools::ProbToRate(pC, 1), t);
+  return (modeltools::RateToProb(modeltools::ProbToRate(base_prob * rr, 1), 1/t));
+}
+
 #' @title Linear Interpolation
 #' @description Linear interpolation between two points on a curve. 
 #' May be faster than base R function since only two points are used for interpolation.

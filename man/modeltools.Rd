@@ -33,6 +33,10 @@ using method of moments.\cr\cr
   \code{\link{lerp}} is a linear interpolation function that only uses two points on a curve. May be faster than the
   base R function for decision models. 
 }
+\subsection{Tools}{
+  \code{\link{fieller}} returns Fieller's confidence interval for a ratio of two vectors. \cr\cr
+  \code{\link{confint.vector}} returns a confidence interval of a vector using a normal distribution. 
+}
 }
 \author{
 Austin Nam (\email{austin.nam@mail.utoronto.ca})

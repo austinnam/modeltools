@@ -20,3 +20,16 @@ GetDiscount <- function(disc_rate, t){
   return(1/((1+disc_rate)^seq(0,t-1)))
   
 }
+
+#' @title Continuous discount function
+#' @description Continuous discounting function
+#' @param discRate Discount rate
+#' @param t1 First time point
+#' @param t2 Second time point
+#' @return Discount factor
+#' @export
+getContinuousPayoff <- function(discRate, t1, t2) {
+  inst_dr = log(1+discRate);
+  
+  return((exp(-inst_dr * t2) - exp(-inst_dr * t1)) / -inst_dr);
+}
