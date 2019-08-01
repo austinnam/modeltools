@@ -8,4 +8,4 @@ Maintainer: Austin Nam <austin.nam@mail.utoronto.ca>
 Description: This package contains common tools used for decision modelling in R.  
 License: MIT + file LICENSE
 Encoding: UTF-8
-RoxygenNote: 6.1.0
+RoxygenNote: 6.1.1

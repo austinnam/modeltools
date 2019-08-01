@@ -4,8 +4,7 @@
 #' @param conf.level confidence level of the vector
 #' @return A vector of the lower/upper limits of the confidence interval
 #' @export
-confint.vector <- function(x, conf.level=0.95)
-{
+confintVector <- function(x, conf.level=0.95){
   if(conf.level>=1 | conf.level<=0){
     print("Confidence interval must be between 0 and 1.")
     return()

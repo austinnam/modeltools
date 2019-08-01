@@ -35,7 +35,7 @@ using method of moments.\cr\cr
 }
 \subsection{Tools}{
   \code{\link{fieller}} returns Fieller's confidence interval for a ratio of two vectors. \cr\cr
-  \code{\link{confint.vector}} returns a confidence interval of a vector using a normal distribution. 
+  \code{\link{confintVector}} returns a confidence interval of a vector using a normal distribution. 
 }
 }
 \author{

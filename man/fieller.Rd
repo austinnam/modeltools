@@ -4,7 +4,7 @@
 \alias{fieller}
 \title{Fieller's Confidence Interval}
 \usage{
-fieller(x, y, conf.level = 0.95)
+fieller(x, y, conf.level = 0.95, round = 2)
 }
 \arguments{
 \item{x}{A numeric vector of the numerator}
@@ -12,6 +12,8 @@ fieller(x, y, conf.level = 0.95)
 \item{y}{A numeric vector of the denominator}
 
 \item{conf.level}{confidence level of the vector}
+
+\item{round}{number of decimal places to use}
 }
 \value{
 A vector of the lower/upper limits of the confidence interval
