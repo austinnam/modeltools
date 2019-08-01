@@ -10,8 +10,8 @@ confintVector <- function(x, conf.level=0.95){
     return()
   }
   
-  mu <- mean(v)
-  sigma <- sd(v)
+  mu <- mean(x)
+  sigma <- sd(x)
   alpha <- 1-conf.level
   error <- qnorm(1-alpha/2)*sigma/sqrt(length(x))
   
